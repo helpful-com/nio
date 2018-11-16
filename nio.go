@@ -15,6 +15,10 @@ type Buffer interface {
 	io.ReadWriter
 }
 
+type Resetter interface {
+	Reset()
+}
+
 // Pipe creates a buffered pipe.
 // It can be used to connect code expecting an io.Reader with code expecting an io.Writer.
 // Reads on one end read from the supplied Buffer. Writes write to the supplied Buffer.

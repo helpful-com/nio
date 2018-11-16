@@ -175,3 +175,11 @@ func (w *PipeWriter) Write(p []byte) (int, error) {
 
 	return int(n), err
 }
+
+func (w *PipeWriter) Reset() bool {
+	resetter, ok := w.b.(Resetter)
+	if ok {
+		resetter.Reset()
+	}
+	return ok
+}
